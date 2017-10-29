@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 
 import config from './config';
 import router from './routes/routes';
@@ -9,6 +10,9 @@ mongoose.connect(config.mongooseUrl, () => {
 });
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', router);
 
