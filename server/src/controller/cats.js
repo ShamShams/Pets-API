@@ -14,4 +14,14 @@ router.post('/add', (req, res) => {
   });
 });
 
+// Afficher tous les chats
+router.get('/', (req, res) => {
+  Cat.find({}, (err, cats) => {
+    if (err) res.send(err);
+    res.json(cats);
+  });
+});
+
+
+
 export default router;
