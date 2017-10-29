@@ -22,6 +22,12 @@ router.get('/', (req, res) => {
   });
 });
 
-
+// Afficher un chat par son ID
+router.get('/:id', (req, res) => {
+  Cat.findById(req.params.id, (err, cat) => {
+    if (err) res.send(err);
+    res.json(cat);
+  });
+});
 
 export default router;
