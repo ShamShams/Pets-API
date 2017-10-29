@@ -11,4 +11,4 @@ const catSchema = new mongoose.Schema({
   miauleur: { type: Boolean, required: true }
 }, { versionKey: false });
 
-export defaut mongoose.model('Cat', catSchema);
+export default mongoose.model('Cat', catSchema);

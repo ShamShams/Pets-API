@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 import config from './config';
+import router from './routes/routes';
 
 mongoose.connect(config.mongooseUrl, () => {
   console.log("DB initialized...");
@@ -9,6 +10,8 @@ mongoose.connect(config.mongooseUrl, () => {
 
 const app = express();
 
+app.use('/', router);
+
 app.listen(config.port, () => {
   console.log(`Server is listening on port ${config.port}...`);
-})
+});

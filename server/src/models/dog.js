@@ -12,4 +12,4 @@ const dogSchema = new mongoose.Schema({
   propre: { type: Boolean, required: true }
 }, { versionKey: false });
 
-export defaut mongoose.model('Dog', dogSchema);
+export default mongoose.model('Dog', dogSchema);
