@@ -31,10 +31,18 @@ router.get('/:id', (req, res) => {
 });
 
 // Modifier un chat
-router.post('/:id', (req, res) => {
+router.post('/:id/update', (req, res) => {
   Cat.findByIdAndUpdate(req.params.id, req.body, (err, prevCat) => {
     if (err) res.send(err);
     res.send(`${prevCat.nom} a été modifié`);
+  });
+});
+
+// Supprimer un chat
+router.get('/:id/delete', (req, res) => {
+  Cat.findByIdAndRemove(req.params.id, (err, removedCat) => {
+    if (err) res.send(err);
+    res.send(`${removedCat.nom} a été supprimé`)
   });
 });
 
