@@ -30,4 +30,12 @@ router.get('/:id', (req, res) => {
   });
 });
 
+// Modifier un chat
+router.post('/:id', (req, res) => {
+  Cat.findByIdAndUpdate(req.params.id, req.body, (err, prevCat) => {
+    if (err) res.send(err);
+    res.send(`${prevCat.nom} a été modifié`);
+  });
+});
+
 export default router;
