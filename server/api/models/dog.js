@@ -8,7 +8,7 @@ const dogSchema = new mongoose.Schema({
   calme: { type: Boolean, required: true },
   joueur: { type: Boolean, required: true },
   affectueux: { type: Boolean, required: true },
-  inteligent: { type: Boolean, required: true },
+  intelligent: { type: Boolean, required: true },
   propre: { type: Boolean, required: true }
 }, { versionKey: false });
 
