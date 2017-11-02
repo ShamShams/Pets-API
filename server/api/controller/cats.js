@@ -10,7 +10,7 @@ router.post('/add', (req, res) => {
   let newCat = new Cat(req.body);
   newCat.save((err, cat) => {
     if (err) res.send(err);
-    res.json(cat);
+    res.redirect('http://localhost:3000');
   });
 });
 
@@ -42,7 +42,7 @@ router.post('/:id/update', (req, res) => {
 router.get('/:id/delete', (req, res) => {
   Cat.findByIdAndRemove(req.params.id, (err, removedCat) => {
     if (err) res.send(err);
-    res.send(`${removedCat.nom} a été supprimé`)
+    res.redirect('http://localhost:3000');
   });
 });
 

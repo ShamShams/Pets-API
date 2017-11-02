@@ -10,7 +10,7 @@ router.post('/add', (req, res) => {
   let newDog = new Dog(req.body);
   newDog.save((err, dog) => {
     if (err) res.send(err);
-    res.json(dog);
+    res.redirect('http://localhost:3000/');
   });
 });
 

@@ -3,7 +3,10 @@ import request from 'request';
 
 import '../stylesheets/App.css';
 
-import List from './List';
+import CatForm from './CatForm';
+import CatList from './CatList';
+import DogForm from './DogForm';
+import DogList from './DogList';
 
 class App extends Component {
   constructor(props) {
@@ -17,30 +20,33 @@ class App extends Component {
   componentDidMount() {
     let catsUrl = 'http://localhost:3005/chats';
     let dogsUrl = 'http://localhost:3005/chiens';
-    request(catsUrl, (err, res, body) => {
-      console.log(body);
-      if (err) res.send(err);
-      this.setState({
-        cats: JSON.parse(body)
+
+    fetch(catsUrl)
+      .then(res => res.json())
+      .then(result => {
+        this.setState({
+          cats: result
+        })
       })
-    });
-    request(dogsUrl, (err, res, body) => {
-      console.log(body);
-      if (err) res.send(err);
-      this.setState({
-        dogs: JSON.parse(body)
+      .catch((res, err) => res.send(err));
+
+    fetch(dogsUrl)
+      .then(res => res.json())
+      .then(result => {
+        this.setState({
+          dogs: result
+        })
       })
-    });
+      .catch((res, err) => res.send(err));
   }
 
   render() {
-    const cats = this.state.cats;
-    const dogs = this.state.dogs;
-
     return (
       <div className="App">
-        <List pets={cats}/>
-        <List pets={dogs}/>
+        <CatForm />
+        <CatList cats={this.state.cats}/>
+        <DogForm />
+        <DogList dogs={this.state.dogs}/>
       </div>
     );
   }
