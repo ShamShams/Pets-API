@@ -1,46 +1,47 @@
 import { Router } from 'express';
 import mongoose from 'mongoose';
 
-import Cat from '../models/cat';
+import Pet from '../models/pet';
 
 const router = Router();
 
-// Ajouter un chat
+// Ajouter un animal
 router.post('/add', (req, res) => {
-  let newCat = new Cat(req.body);
-  newCat.save((err, cat) => {
+  let newPet = new Pet(req.body);
+  newPet.save((err, pet) => {
     if (err) res.send(err);
     res.redirect('http://localhost:3000');
+    // res.json(pet);
   });
 });
 
-// Afficher tous les chats
+// Afficher tous les animaux
 router.get('/', (req, res) => {
-  Cat.find({}, (err, cats) => {
+  Pet.find({}, (err, pets) => {
     if (err) res.send(err);
-    res.json(cats);
+    res.json(pets);
   });
 });
 
-// Afficher un chat par son ID
+// Afficher un animal par son ID
 router.get('/:id', (req, res) => {
-  Cat.findById(req.params.id, (err, cat) => {
+  Pet.findById(req.params.id, (err, pet) => {
     if (err) res.send(err);
-    res.json(cat);
+    res.json(pet);
   });
 });
 
-// Modifier un chat
+// Modifier un animal
 router.post('/:id/update', (req, res) => {
-  Cat.findByIdAndUpdate(req.params.id, req.body, (err, prevCat) => {
+  Pet.findByIdAndUpdate(req.params.id, req.body, (err, prevPet) => {
     if (err) res.send(err);
-    res.send(`${prevCat.nom} a été modifié`);
+    res.send(`${prevPet.nom} a été modifié`);
   });
 });
 
-// Supprimer un chat
+// Supprimer un animal
 router.get('/:id/delete', (req, res) => {
-  Cat.findByIdAndRemove(req.params.id, (err, removedCat) => {
+  Pet.findByIdAndRemove(req.params.id, (err, removedPet) => {
     if (err) res.send(err);
     res.redirect('http://localhost:3000');
   });

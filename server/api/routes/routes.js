@@ -1,11 +1,9 @@
 import { Router } from 'express';
 
-import cats from '../controller/cats';
-import dogs from '../controller/dogs';
+import pets from '../controller/pets';
 
 const router = Router();
 
-router.use('/chats', cats);
-router.use('/chiens', dogs);
+router.use('/pets', pets);
 
 export default router;
