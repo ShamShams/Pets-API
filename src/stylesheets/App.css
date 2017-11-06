@@ -1,24 +1,36 @@
-.App {
+.PetForm {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.PetList {
+  display: flex;
+  margin-top: 30px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.PetCard {
+  border: 2px solid #bbb;
+  width: 350px;
+  height: 400px;
+  position: relative;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
-.App-intro {
-  font-size: large;
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  text-decoration: none;
+  color: #f04848;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.cardSpecies {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3px;
+  color: grey;
+  border-right: 2px dashed #aaa;
+  border-bottom: 2px dashed #aaa;
 }

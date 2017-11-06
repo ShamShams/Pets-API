@@ -5,7 +5,7 @@ class PetForm extends Component {
     super(props);
     this.state = {
       species: 'Chat',
-      age: 'adult',
+      age: 'Adulte',
       affectionate: false,
       quiet: false,
       playful: false
@@ -31,7 +31,7 @@ class PetForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="PetForm">
         <p>Vous avez trouvé un animal ? Ajoutez-le ici:</p>
         <form action="http://localhost:3005/pets/add" method="POST">
           <label>Espèce* :
@@ -48,8 +48,8 @@ class PetForm extends Component {
           <br/><br/>
           <label>Âge moyen* :
             <select name="age" value={this.state.age} onChange={this.handleAgeChange}>
-              <option value="adult">Adulte</option>
-              <option value="baby">Bébé</option>
+              <option value="Adulte">Adulte</option>
+              <option value="Bébé">Bébé</option>
             </select>
           </label>
           <br/><br/>

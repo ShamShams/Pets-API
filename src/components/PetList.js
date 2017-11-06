@@ -3,14 +3,23 @@ import React, { Component } from 'react';
 class PetList extends Component {
   render() {
     const pets = this.props.pets.map(pet =>
-      <li>Espèce: {pet.species} - Nom : {pet.name} - Race: {pet.breed} - Age: {pet.age} 
-        <a href={`http://localhost:3005/pets/${pet._id}/delete`}><button>X</button></a>
-      </li>
+      <div className="PetCard">
+        <div className="cardSpecies">{pet.species}</div>
+        <a className="close" href={`http://localhost:3005/pets/${pet._id}/delete`}>X</a>
+        <h3>{pet.name}</h3>
+        <p>Race: {pet.breed}</p>
+        <p>Age: {pet.age}</p>
+        <ul>
+          {pet.affectionate && <li>affectueux</li>}
+          {pet.quiet && <li>calme</li>}
+          {pet.playful && <li>joueur</li>}
+        </ul>
+      </div>
     );
 
     return (
-      <div className="App">
-        <ul>{pets}</ul>
+      <div className="PetList">
+        {pets}
       </div>
     );
   }
