@@ -1,13 +1,25 @@
 import { Router } from 'express';
 import mongoose from 'mongoose';
+import multer from 'multer';
 
 import Pet from '../models/pet';
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, '../public/uploads/')
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  }
+});
+const upload = multer({ storage: storage })
 
 const router = Router();
 
 // Ajouter un animal
-router.post('/add', (req, res) => {
+router.post('/add', upload.single('petPhoto'), (req, res) => {
   let newPet = new Pet(req.body);
+  newPet.petPhoto = `${req.file.filename}`;
   newPet.save((err, pet) => {
     if (err) res.send(err);
     res.redirect('http://localhost:3000');
@@ -33,9 +45,9 @@ router.get('/:id', (req, res) => {
 
 // Modifier un animal
 router.post('/:id/update', (req, res) => {
-  Pet.findByIdAndUpdate(req.params.id, req.body, (err, prevPet) => {
+  Pet.findByIdAndUpdate(req.params.id, req.body, (err) => {
     if (err) res.send(err);
-    res.send(`${prevPet.nom} a été modifié`);
+    res.redirect('http://localhost:3000');
   });
 });
 

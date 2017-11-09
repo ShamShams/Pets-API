@@ -1,36 +1,7 @@
-.PetForm {
-  text-align: center;
-}
-
-.PetList {
-  display: flex;
-  margin-top: 30px;
-}
-
-.PetCard {
-  border: 2px solid #bbb;
-  width: 350px;
-  height: 400px;
-  position: relative;
-  padding: 15px;
+* {
   box-sizing: border-box;
 }
 
-.close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  text-decoration: none;
-  color: #f04848;
-  font-weight: bold;
-}
-
-.cardSpecies {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 3px;
-  color: grey;
-  border-right: 2px dashed #aaa;
-  border-bottom: 2px dashed #aaa;
+.Form {
+  text-align: center;
 }

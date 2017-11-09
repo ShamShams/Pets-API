@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import '../stylesheets/App.css';
+import Form from './Form';
+import List from './List';
 
-import PetForm from './PetForm';
-import PetList from './PetList';
+import '../stylesheets/App.css';
 
 class App extends Component {
   constructor(props) {
@@ -29,8 +29,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <PetForm />
-        <PetList pets={this.state.pets}/>
+        <Form />
+        <List pets={this.state.pets}/>
       </div>
     );
   }
