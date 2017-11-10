@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Navbar from './Navbar';
+import Title from './Title';
 import Form from './Form';
 import List from './List';
 
@@ -29,6 +31,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Title title="Ajouter un animal" />
         <Form />
         <List pets={this.state.pets}/>
       </div>

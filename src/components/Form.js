@@ -14,7 +14,7 @@ class Form extends Component {
       department: '',
       city: '',
       email: '',
-      phone: ''
+      phone: '',
     };
   }
 
@@ -35,7 +35,6 @@ class Form extends Component {
   render() {
     return (
       <div className="Form">
-        <p>Ajouter un animal:</p>
         <form action="http://localhost:3005/pets/add" method="POST" encType="multipart/form-data">
           <label>Espèce* :
             <input type="radio" name="species" value="Chat" checked={this.state.species === 'Chat'} onChange={this.handleChange}/>Chat
@@ -73,7 +72,7 @@ class Form extends Component {
           </label>
           <br/><br/>
           <label> Photo :
-            <input type="file" name="petPhoto"/>
+            <input type="file" name="photo"/>
           </label>
           <br/><br/>
           <label>Département et ville du refuge :

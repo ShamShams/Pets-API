@@ -17,9 +17,9 @@ const upload = multer({ storage: storage })
 const router = Router();
 
 // Ajouter un animal
-router.post('/add', upload.single('petPhoto'), (req, res) => {
+router.post('/add', upload.single('photo'), (req, res) => {
   let newPet = new Pet(req.body);
-  newPet.petPhoto = `${req.file.filename}`;
+  newPet.photo = `${req.file.filename}`;
   newPet.save((err, pet) => {
     if (err) res.send(err);
     res.redirect('http://localhost:3000');

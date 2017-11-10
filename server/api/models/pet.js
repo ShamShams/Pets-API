@@ -10,7 +10,7 @@ const PetSchema = new mongoose.Schema({
   quiet: { type: Boolean, required: false },
   playful: { type: Boolean, required: false },
   description: { type: String, required: false },
-  petPhoto: { type: String, required: false },
+  photo: { type: String, required: false },
   department: { type: Number, required: true },
   city: { type: String, required: true },
   email: { type: String, required: true },
