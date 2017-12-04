@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import mongoose from 'mongoose';
 import multer from 'multer';
+import fs from 'fs';
 
 import Pet from '../models/pet';
 
@@ -19,7 +19,9 @@ const router = Router();
 // Ajouter un animal
 router.post('/add', upload.single('photo'), (req, res) => {
   let newPet = new Pet(req.body);
-  newPet.photo = `${req.file.filename}`;
+  if(req.file) {
+    newPet.photo = `${req.file.filename}`;
+  }
   newPet.save((err, pet) => {
     if (err) res.send(err);
     res.redirect('http://localhost:3000');
@@ -53,6 +55,11 @@ router.post('/:id/update', (req, res) => {
 
 // Supprimer un animal
 router.get('/:id/delete', (req, res) => {
+    Pet.findOne({_id: req.params.id}, (err, pet) => {
+      if (pet.photo){
+        fs.unlinkSync(`../public/uploads/${pet.photo}`)
+      }
+    })
   Pet.findByIdAndRemove(req.params.id, (err, removedPet) => {
     if (err) res.send(err);
     res.redirect('http://localhost:3000');

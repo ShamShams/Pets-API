@@ -1,6 +1,7 @@
-.Title h1 {
+.Title h3 {
   font-family: 'Amatic SC', cursive;
   text-align: center;
   font-size: 50px;
   color: #bf794c;
+  margin: 20px 0;
 }

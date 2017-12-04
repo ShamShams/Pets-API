@@ -13,3 +13,7 @@
   width: 92%;
   margin: 0 auto;
 }
+
+.Form label {
+  margin-right: 7px;
+}

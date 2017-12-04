@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Link, NavLink, Route, Switch} from 'react-router-dom';
 
-import Navbar from './Navbar';
-import Title from './Title';
+// Components
 import Form from './Form';
 import List from './List';
 
 import '../stylesheets/App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pets: [],
-    };
-  }
+  state = {
+    pets: [],
+    open: false
+  };
 
   componentDidMount() {
     let petsUrl = 'http://localhost:3005/pets';
@@ -30,8 +28,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Title title="Ajouter un animal" />
+      <div>
         <Form />
         <List pets={this.state.pets}/>
       </div>
@@ -40,3 +37,25 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+
+
+
+{/*      <Router>
+  <div className="App">
+  <nav>
+  <ul>
+  <li><Link to="/pets">Nos animaux</Link></li>
+  <li><Link to="/add">Ajouter un animal</Link></li>
+  </ul>
+  </nav>
+
+  <Switch>
+  <Route path="/add" component={Form}/>
+  <Route path="/pets" component={List}/>
+  <Route path="/" component={List}/>
+  </Switch>
+  </div>
+  </Router> */}
