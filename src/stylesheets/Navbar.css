@@ -1,0 +1,39 @@
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  margin: 0;
+  background-color: #f4edeb;
+  list-style-type: none;
+  border-bottom: 1px solid #eddfd5;
+}
+
+.brand {
+  color: #d09772;
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-right li {
+  margin-left: 80px;
+}
+
+a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #4f3727
+}
+
+a:hover, a.active {
+  color: #d09772;
+}

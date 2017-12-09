@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Title} from "./Title";
 
 import catImg from '../images/catDefaultImg.jpg';
 import dogImg from '../images/dogDefaultImg.jpg';
@@ -15,6 +16,9 @@ class List extends Component {
 
     return (
       <div className="List">
+        <div className="List-header">
+          <Title title="Nos animaux"/>
+        </div>
         {this.props.pets.map((pet, i) =>
           <div key={i} className="Card">
             <a className="close" href={`http://localhost:3005/pets/${pet._id}/delete`}>x</a>

@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Link, NavLink, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// Components
-import Form from './Form';
-import List from './List';
+import { List, Form, Title, Navbar } from './';
 
 import '../stylesheets/App.css';
 
 class App extends Component {
   state = {
-    pets: [],
-    open: false
+    pets: []
   };
 
   componentDidMount() {
@@ -28,34 +25,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Form />
-        <List pets={this.state.pets}/>
-      </div>
+      <Router>
+        <div className="container">
+          <Navbar/>
+          <Route exact path="/" render={() => <List pets={this.state.pets}/>} />
+          <Route path="/animaux" render={() => <List pets={this.state.pets}/>} />
+          <Route path="/ajouter" component={Form} />
+        </div>
+      </Router>
     );
   }
 }
 
 export default App;
-
-
-
-
-
-
-{/*      <Router>
-  <div className="App">
-  <nav>
-  <ul>
-  <li><Link to="/pets">Nos animaux</Link></li>
-  <li><Link to="/add">Ajouter un animal</Link></li>
-  </ul>
-  </nav>
-
-  <Switch>
-  <Route path="/add" component={Form}/>
-  <Route path="/pets" component={List}/>
-  <Route path="/" component={List}/>
-  </Switch>
-  </div>
-  </Router> */}
