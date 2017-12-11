@@ -3,7 +3,7 @@ nav ul {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 10px 40px;
   margin: 0;
   background-color: #f4edeb;
   list-style-type: none;
@@ -14,7 +14,8 @@ nav ul {
   color: #d09772;
   font-family: 'Amatic SC', cursive;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 35px;
+  text-shadow: 1px 1px #4f3727;
   margin: 0;
   padding: 0;
 }
@@ -28,12 +29,12 @@ nav ul {
   margin-left: 80px;
 }
 
-a {
+nav a {
   text-transform: uppercase;
   text-decoration: none;
-  color: #4f3727
+  color: #4f3727;
 }
 
-a:hover, a.active {
+nav a:hover, nav a.active {
   color: #d09772;
 }

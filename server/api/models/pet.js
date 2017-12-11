@@ -1,19 +1,19 @@
 import mongoose from 'mongoose';
 
 const PetSchema = new mongoose.Schema({
-  species: { type: String, required: false },
-  name: { type: String, required: false },
-  breed: { type: String, required: false },
-  sex: { type: String, required: false },
-  age: { type: String, required: false },
+  species: { type: String, required: true },
+  name: { type: String, required: true },
+  breed: { type: String, required: true },
+  sex: { type: String, required: true },
+  age: { type: String, required: true },
   affectionate: { type: Boolean, required: false },
   quiet: { type: Boolean, required: false },
   playful: { type: Boolean, required: false },
   description: { type: String, required: false },
   photo: { type: String, required: false },
-  department: { type: Number, required: false },
-  city: { type: String, required: false },
-  email: { type: String, required: false },
+  department: { type: Number, required: true },
+  city: { type: String, required: true },
+  email: { type: String, required: true },
   phone: { type: Number, required: false }
 }, { versionKey: false });
 

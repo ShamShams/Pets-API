@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import "../stylesheets/Navbar.css";
 
-const Navbar = () => (
+const Navbar = (props) =>
   <nav>
     <ul>
       <li><NavLink to="/animaux" className="brand">SPA</NavLink></li>
@@ -13,6 +13,5 @@ const Navbar = () => (
       </div>
     </ul>
   </nav>
-);
 
 export default Navbar;

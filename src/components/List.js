@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Title} from "./Title";
+import { Title } from "./Title";
 
 import catImg from '../images/catDefaultImg.jpg';
 import dogImg from '../images/dogDefaultImg.jpg';
@@ -8,7 +8,7 @@ import '../stylesheets/List.css';
 
 class List extends Component {
   render() {
-    let petImg = (pet) => {
+    const petImg = (pet) => {
       if (pet.photo) return `uploads/${pet.photo}`;
       else if (pet.species === 'Chat') return catImg;
       else return dogImg;
@@ -19,6 +19,7 @@ class List extends Component {
         <div className="List-header">
           <Title title="Nos animaux"/>
         </div>
+
         {this.props.pets.map((pet, i) =>
           <div key={i} className="Card">
             <a className="close" href={`http://localhost:3005/pets/${pet._id}/delete`}>x</a>
@@ -29,6 +30,7 @@ class List extends Component {
               <h1 className="Card-info-name">{pet.name}</h1>
               <p>{pet.species} {pet.breed} - {pet.age}, {pet.sex}</p>
               <p>{pet.department} - {pet.city}</p>
+              <a href={`http://localhost:3000/animaux/${pet._id}`} className="view-btn">VOIR</a>
             </div>
           </div>
         )}

@@ -16,7 +16,11 @@ select {
   margin: 5px 20px 5px 5px;
 }
 
-input {
+textarea {
+  padding: 5px;
+}
+
+input, textarea {
   font-size: 14px;
 }
 
@@ -24,7 +28,8 @@ input[type=radio] {
   margin: 0 5px 10px 15px;
 }
 
-input[type=text], input[type=email], textarea {
+input[type=text], input[type=email],
+textarea {
   margin-top: 7px;
   margin-bottom: 15px;
   width: 100%;

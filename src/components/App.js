@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { List, Form, Title, Navbar } from './';
+import { List, ListDetail, Form, Navbar } from './';
 
 import '../stylesheets/App.css';
 
@@ -20,7 +20,7 @@ class App extends Component {
           pets: result
         })
       })
-      .catch((res, err) => res.send(err));
+      .catch((res, err) => console.log(err));
   }
 
   render() {
@@ -28,9 +28,12 @@ class App extends Component {
       <Router>
         <div className="container">
           <Navbar/>
-          <Route exact path="/" render={() => <List pets={this.state.pets}/>} />
-          <Route path="/animaux" render={() => <List pets={this.state.pets}/>} />
-          <Route path="/ajouter" component={Form} />
+          <Switch>
+            <Route path="/animaux/:id" component={ListDetail} />
+            <Route path="/animaux" render={() => <List pets={this.state.pets}/>} />
+            <Route path="/ajouter" component={Form} />
+            <Route path="/" render={() => <List pets={this.state.pets}/>} />
+          </Switch>
         </div>
       </Router>
     );

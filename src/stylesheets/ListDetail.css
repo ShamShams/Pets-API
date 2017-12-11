@@ -1,0 +1,88 @@
+.ListDetail {
+  padding: 50px;
+  background-color: #f4edeb;
+}
+
+.ListDetail-container {
+  margin: auto;
+  background-color: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 600px;
+}
+
+.Pet-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.Pet-img {
+  width: 45%;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.Pet-info-text {
+  width: 55%;
+  padding: 25px;
+}
+
+.Pet-name {
+  font-family: 'Amatic SC', cursive;
+  font-size: 40px;
+  color: #d09772;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.Pet-info p,
+.Contact-info p {
+  font-size: 13px;
+  color: #383838;
+  margin: 10px 0;
+}
+
+.Pet-info span,
+.Contact-info span {
+  font-weight: bold;
+}
+
+.Contact-info {
+  padding: 20px;
+}
+
+.Contact-info h4 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 28px;
+  color: #8b6852;
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btn {
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #49433d;
+  background-color: #fafafa;
+  margin: 0 20px 25px 20px;
+}
+
+.delete-btn {
+  background-color: #ed6767;
+  color: #fff;
+}
+
+.update-btn:hover {
+  background-color: #eee;
+}

@@ -23,8 +23,8 @@ router.post('/add', upload.single('photo'), (req, res) => {
     newPet.photo = `${req.file.filename}`;
   }
   newPet.save((err, pet) => {
-    if (err) res.send(err);
-    res.redirect('http://localhost:3000');
+    if (err) return res.send(err);
+    res.redirect('http://localhost:3000/animaux');
     // res.json(pet);
   });
 });
@@ -32,7 +32,7 @@ router.post('/add', upload.single('photo'), (req, res) => {
 // Afficher tous les animaux
 router.get('/', (req, res) => {
   Pet.find({}, (err, pets) => {
-    if (err) res.send(err);
+    if (err) return res.send(err);
     res.json(pets);
   });
 });
@@ -40,15 +40,15 @@ router.get('/', (req, res) => {
 // Afficher un animal par son ID
 router.get('/:id', (req, res) => {
   Pet.findById(req.params.id, (err, pet) => {
-    if (err) res.send(err);
-    res.json(pet);
+    if (err) return res.send(err);
+    res.send(pet);
   });
 });
 
 // Modifier un animal
 router.post('/:id/update', (req, res) => {
   Pet.findByIdAndUpdate(req.params.id, req.body, (err) => {
-    if (err) res.send(err);
+    if (err) return res.send(err);
     res.redirect('http://localhost:3000');
   });
 });
@@ -61,7 +61,7 @@ router.get('/:id/delete', (req, res) => {
       }
     })
   Pet.findByIdAndRemove(req.params.id, (err, removedPet) => {
-    if (err) res.send(err);
+    if (err) return res.send(err);
     res.redirect('http://localhost:3000');
   });
 });
