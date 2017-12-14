@@ -14,7 +14,7 @@ const PetSchema = new mongoose.Schema({
   department: { type: Number, required: true },
   city: { type: String, required: true },
   email: { type: String, required: true },
-  phone: { type: Number, required: false }
+  phone: { type: String, required: false }
 }, { versionKey: false });
 
 export default mongoose.model('Pet', PetSchema);

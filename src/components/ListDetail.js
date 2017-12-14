@@ -23,7 +23,7 @@ class ListDetail extends Component {
     const pet = this.state.pet;
 
     const petImg = (pet) => {
-      if (pet.photo) return `uploads/${pet.photo}`;
+      if (pet.photo) return `../uploads/${pet.photo}`;
       else if (pet.species === 'Chat') return catImg;
       else return dogImg;
     }
@@ -35,14 +35,16 @@ class ListDetail extends Component {
           <div className="ListDetail">
             <div className="ListDetail-container">
               <div className="Pet-info">
-                <img className="Pet-img" src={`uploads/${pet.photo}`} alt="Animal"/>
+                <img className="Pet-img" src={petImg(pet)} alt="Animal"/>
                 <div className="Pet-info-text">
                   <h1 className="Pet-name">{pet.name}</h1>
-                  <p><span>Race : </span>{pet.species}</p>
-                  <p><span>Sexe : </span> {pet.sex}</p>
-                  <p><span>Age :</span> {pet.age}</p>
-                  <p><span>Caractère : </span></p>
-                  <p><span>Description : </span><br/>{pet.description}</p>
+                  <p><span>Race : </span>{pet.breed}</p>
+                  <p><span>Sexe : </span>{pet.sex}</p>
+                  <p><span>Age : </span>{pet.age}</p>
+                  <p><span>Caractère : </span>{pet.affectionate && ('affectueux ')}{pet.quiet && ('calme ')}{pet.playful && ('joueur')}</p>
+                  {pet.description && (
+                    <p><span>Description : </span><br/>{pet.description}</p>
+                  )}
                 </div>
               </div>
 
@@ -50,18 +52,21 @@ class ListDetail extends Component {
                 <h4>Lieu & Contact</h4>
                 <p><span>Lieu : </span>{pet.city}</p>
                 <p><span>Email : </span>{pet.email}</p>
-                <p><span>Téléphone : </span>{pet.phone}</p>
+                {pet.description && (
+                  <p><span>Téléphone : </span>{pet.phone}</p>
+                )}
+
               </div>
 
               <div className="buttons">
                 <a href="#" className="btn update-btn">Modifier</a>
-                <a href="#" className="btn delete-btn">Supprimer</a>
+                <a href={`http://localhost:3005/pets/${pet._id}/delete`} className="btn delete-btn">Supprimer</a>
               </div>
             </div>
           </div>
           :
           <div>
-            ... Loading ...
+            <span className="loading">... Loading ...</span>
           </div>
         }
       </div>

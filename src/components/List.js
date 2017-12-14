@@ -22,7 +22,6 @@ class List extends Component {
 
         {this.props.pets.map((pet, i) =>
           <div key={i} className="Card">
-            <a className="close" href={`http://localhost:3005/pets/${pet._id}/delete`}>x</a>
             <div className="Card-img">
               <img src={petImg(pet)} alt="Animal"/>
             </div>
