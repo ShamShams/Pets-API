@@ -1,8 +1,11 @@
+.Title {
+  padding: 40px 0;
+}
+
 .Title h3 {
   font-family: 'Amatic SC', cursive;
   text-align: center;
   font-size: 45px;
   color: #d09772;
-  margin-bottom: 30px;
-  margin-top: 0;
+  margin: 0;
 }

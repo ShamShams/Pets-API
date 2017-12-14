@@ -1,0 +1,65 @@
+.AddForm {
+  padding: 50px;
+  background-color: #f4edeb;
+}
+
+form {
+  margin: auto;
+  background-color: #fefefe;
+  padding: 10px 60px 40px 60px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 600px;
+}
+
+select {
+  margin: 5px 20px 5px 5px;
+}
+
+textarea {
+  padding: 5px;
+  font-family: sans-serif;
+}
+
+input, textarea {
+  font-size: 14px;
+}
+
+input[type=radio] {
+  margin: 0 5px 10px 15px;
+}
+
+input[type=text], input[type=email],
+textarea {
+  margin-top: 7px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+input[type=checkbox] {
+  margin: 20px 5px 30px 20px;
+}
+
+input[type=file] {
+  margin: 10px 0 20px 10px;
+}
+
+input[name=department] {
+  width: 40px;
+  margin-right: 10px;
+}
+
+input[name=city] {
+  width: 200px;
+}
+
+input[name=phone] {
+  width: 150px;
+  margin-left: 10px;
+}
+
+button[type=submit] {
+  margin: 30px auto 0 auto;
+  display: block;
+  font-size: 16px;
+}

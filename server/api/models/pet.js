@@ -6,15 +6,18 @@ const PetSchema = new mongoose.Schema({
   breed: { type: String, required: true },
   sex: { type: String, required: true },
   age: { type: String, required: true },
-  affectionate: { type: Boolean, required: false },
-  quiet: { type: Boolean, required: false },
-  playful: { type: Boolean, required: false },
+  character: {
+    affectionate: { type: Boolean, required: false },
+    quiet: { type: Boolean, required: false },
+    playful: { type: Boolean, required: false },
+  },
   description: { type: String, required: false },
   photo: { type: String, required: false },
   department: { type: Number, required: true },
   city: { type: String, required: true },
   email: { type: String, required: true },
   phone: { type: String, required: false }
-}, { versionKey: false });
+},
+{ versionKey: false });
 
 export default mongoose.model('Pet', PetSchema);

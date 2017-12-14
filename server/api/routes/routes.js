@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import pets from '../controller/pets';
+import pets from './pets';
 
 const router = Router();
 

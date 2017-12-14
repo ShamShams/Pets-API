@@ -5,7 +5,8 @@ nav ul {
   align-items: center;
   padding: 10px 40px;
   margin: 0;
-  background-color: #f4edeb;
+  /*background-color: #f4edeb;*/
+  background-color: #fefefe;
   list-style-type: none;
   border-bottom: 1px solid #eddfd5;
 }

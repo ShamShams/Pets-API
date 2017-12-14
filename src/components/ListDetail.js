@@ -30,8 +30,7 @@ class ListDetail extends Component {
 
     return (
       <div>
-        {
-          this.state.pet ?
+        {this.state.pet ?
           <div className="ListDetail">
             <div className="ListDetail-container">
               <div className="Pet-info">
@@ -41,21 +40,31 @@ class ListDetail extends Component {
                   <p><span>Race : </span>{pet.breed}</p>
                   <p><span>Sexe : </span>{pet.sex}</p>
                   <p><span>Age : </span>{pet.age}</p>
-                  <p><span>Caractère : </span>{pet.affectionate && ('affectueux ')}{pet.quiet && ('calme ')}{pet.playful && ('joueur')}</p>
+                  {pet.character && (
+                    <p><span>Caractère : </span>
+                      {pet.character.affectionate ?
+                        pet.sex === 'Mâle' ? 'Affectueux ' : 'Affectueuse '
+                        : ''
+                      }
+                      {pet.character.quiet && 'Calme '}
+                      {pet.character.playful ?
+                        pet.sex === 'Mâle' ? 'Joueur ' : 'Joueuse '
+                        : ''
+                      }</p>
+                  )}
                   {pet.description && (
-                    <p><span>Description : </span><br/>{pet.description}</p>
+                    <p className="description"><span>Description : </span>{pet.description}</p>
                   )}
                 </div>
               </div>
 
               <div className="Contact-info">
                 <h4>Lieu & Contact</h4>
-                <p><span>Lieu : </span>{pet.city}</p>
+                <p><span>Lieu : </span>{pet.city} ({pet.department})</p>
                 <p><span>Email : </span>{pet.email}</p>
-                {pet.description && (
+                {pet.phone && (
                   <p><span>Téléphone : </span>{pet.phone}</p>
                 )}
-
               </div>
 
               <div className="buttons">

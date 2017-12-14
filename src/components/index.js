@@ -1,7 +1,8 @@
 import List from "./List";
-import Form from "./Form";
+import Card from "./Card";
+import ListDetail from "./ListDetail";
+import AddForm from "./AddForm";
 import Title from "./Title";
 import Navbar from "./Navbar";
-import ListDetail from "./ListDetail";
 
-export { List, ListDetail, Form, Title, Navbar };
+export { List, Card, ListDetail, AddForm, Title, Navbar };
